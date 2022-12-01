@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Smythe', cursive;
+} 
+
+header {
+    background-image: url('/images/burger.jpg');
+    background-size: cover;
+    background-position: 25% 75%;
+    color: white;
+    padding: 45px;
+}
+
+h1, h2 {
+    margin:0;
+    padding-bottom: 20px
+}
+
+h1 {
+    font-size: 39px;
+}
+
+h2 {
+    font-size: 22px;
+}
