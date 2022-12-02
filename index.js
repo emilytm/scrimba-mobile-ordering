@@ -1,10 +1,12 @@
 import { menuArray } from './menuData.js'
 
+let cart = []
+
 document.addEventListener('DOMContentLoaded', renderMenu(menuArray))
 document.addEventListener('click',function(e){
-    console.log(e)
-    if(e.dataset.add){
-        addToCart(e)
+    console.log(e.target.dataset)
+    if(e.target.dataset.add){
+        addToCart(e.target)
     }
 })
 
@@ -33,6 +35,22 @@ function renderMenu(menuArray) {
     menuList.innerHTML = menuHtml    
 }
 
+/* 
+I noticed that the following two functions (addToCart and removeFromCart) are very similar and I tried to make one function that would replace both where 'add' or 'remove' are passed in as parameters but couldn't figure out how to use that parameter to replace the array method (push or pop) or the data attribute (add or remove). Is there a way to do this?
+*/
+
 function addToCart(menuItem){
-    console.log(menuItem.name)
+    cart.push(menuArray.filter(item => {
+        if(item.id === parseInt(menuItem.dataset.add)){
+            return item
+        }
+    }))
+}
+
+function removeFromCart(menuItem){
+    cart.pop(menuArray.filter(item => {
+        if(item.id === parseInt(menuItem.dataset.remove)){
+            return item
+        }
+    }))
 }
