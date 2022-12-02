@@ -52,10 +52,8 @@ function addToCart(menuItem){
             return item
         }
     })
-    
+    document.getElementById(menuItem.dataset.add+'-quantity').value++
     cart.push(itemToAdd)
-    console.log(cart)
-
 }
 
 function removeFromCart(menuItem){
@@ -67,6 +65,7 @@ function removeFromCart(menuItem){
     if (cart.includes(itemToRemove)){
         console.log("at least 1 in cart")
     }
+    document.getElementById(menuItem.dataset.remove+'-quantity').value--
     cart.pop(itemToRemove)
 }
 
