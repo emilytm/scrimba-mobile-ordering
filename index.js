@@ -1,6 +1,12 @@
 import { menuArray } from './menuData.js'
 
 document.addEventListener('DOMContentLoaded', renderMenu(menuArray))
+document.addEventListener('click',function(e){
+    console.log(e)
+    if(e.dataset.add){
+        addToCart(e)
+    }
+})
 
 function renderMenu(menuArray) {
     let menuHtml = ""
@@ -18,7 +24,7 @@ function renderMenu(menuArray) {
                     <p class="price">${menuItem.price}</p>
                 </section>
                 <section class="item-interactions">
-                    <image class="add-button" src="./images/plus.png">
+                    <image class="add-button" src="./images/plus.png" data-add=${menuItem.id}>
                 </section>
             </div>
             <hr>
@@ -27,4 +33,6 @@ function renderMenu(menuArray) {
     menuList.innerHTML = menuHtml    
 }
 
-//renderMenu(menuArray)
+function addToCart(menuItem){
+    console.log(menuItem.name)
+}
