@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Smythe&display=swap');
 body {
     margin: 0;
     font-family: 'Smythe', cursive;
@@ -24,4 +23,76 @@ h1 {
 
 h2 {
     font-size: 22px;
+}
+
+.menu-list {
+    margin: 0 48px 0 48px;
+
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 42px 0 32px 0;
+}
+
+.item-emoji {
+    font-size: 72px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    opacity: 72%;
+}
+
+.ingredients {
+    color: #8B8B8B;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.item-details {
+    width: 100%;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+.item-details p {
+    margin-block-end: 8px;
+    margin-block-start: 8px;
+}
+
+.item-name {
+    font-size: 28px;
+    line-height: 16px;
+}
+
+.price {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+hr {
+    height: 1px;
+    width: 100%;
+    background-color:#D2D2D2;
+    border-style: none;
+}
+
+.item-interactions {
+    border: 1px solid #D2D2D2;
+    border-radius: 50%;
+    display: flex;
+}
+
+.add-button {
+    border-radius: 100%;
+    height: 14px;
+    width: 14px;
+    padding: 16px;
+}
+
+.item-interactions {
+    display: flex;
+    flex-flow: row-reverse;
+    align-items: right top;
 }
