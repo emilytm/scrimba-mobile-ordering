@@ -4,6 +4,10 @@ body {
     font-family: 'Smythe', cursive;
 } 
 
+main {
+    margin: 0 48px 0 48px;
+}
+
 header {
     background-image: url('/images/burger.jpg');
     background-size: cover;
@@ -25,10 +29,14 @@ h2 {
     font-size: 22px;
 }
 
-.menu-list {
-    margin: 0 48px 0 48px;
-
+p {
+    font-size: 28px;
+    line-height: 24px;
+    margin-block-end: 8px;
+    margin-block-start: 8px;
 }
+
+
 
 .menu-item {
     display: flex;
@@ -78,21 +86,71 @@ hr {
     border-style: none;
 }
 
-.item-interactions {
-    border: 1px solid #D2D2D2;
-    border-radius: 50%;
-    display: flex;
-}
-
-.add-button {
+.quantity-button {
     border-radius: 100%;
     height: 14px;
     width: 14px;
-    padding: 16px;
+    margin: 16px 4px 16px 4px;
+    padding: 12px;
+    border: 1px solid #D2D2D2;
+
 }
 
 .item-interactions {
     display: flex;
     flex-flow: row-reverse;
-    align-items: right top;
+    align-items: center;
 }
+
+.item-quantity {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Smythe', sans-serif;
+}
+
+button {
+    background-color: #16DB99;
+    color: white;
+    border: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    width: 100%;
+    height: 60px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+    border-radius: 4px;
+}
+
+.order-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.detail {
+    display: inline-block;
+}
+
+.order-item-remove {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    color: #D2D2D2;
+    padding-left: 14px;
+    margin-block-end: auto;
+    margin-block-start: auto;
+}
+
+.your-order-title {
+    text-align: center;
+    margin: 45px 0;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+}
+

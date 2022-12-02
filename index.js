@@ -6,7 +6,12 @@ document.addEventListener('DOMContentLoaded', renderMenu(menuArray))
 document.addEventListener('click',function(e){
     console.log(e.target.dataset)
     if(e.target.dataset.add){
+        console.log("adding: ", e.target)
         addToCart(e.target)
+    } 
+    else if (e.target.dataset.remove) {
+        console.log("removing: ", e.target)
+        removeFromCart(e.target)
     }
 })
 
@@ -26,7 +31,9 @@ function renderMenu(menuArray) {
                     <p class="price">${menuItem.price}</p>
                 </section>
                 <section class="item-interactions">
-                    <image class="add-button" src="./images/plus.png" data-add=${menuItem.id}>
+                    <image class="item-interaction quantity-button" src="./images/plus.png" data-add=${menuItem.id}>
+                    <input placeholder="0" class="item-quantity item-interaction" id="${menuItem.id}-quantity">
+                    <image class="item-interaction quantity-button" src="./images/minus.png" data-remove=${menuItem.id}>
                 </section>
             </div>
             <hr>
@@ -40,18 +47,26 @@ I noticed that the following two functions (addToCart and removeFromCart) are ve
 */
 
 function addToCart(menuItem){
-    cart.push(menuArray.filter(item => {
+    let itemToAdd = menuArray.find(item => {
         if(item.id === parseInt(menuItem.dataset.add)){
             return item
         }
-    }))
+    })
+    
+    cart.push(itemToAdd)
+    console.log(cart)
+
 }
 
 function removeFromCart(menuItem){
-    cart.pop(menuArray.filter(item => {
+    let itemToRemove = menuArray.find(item => {
         if(item.id === parseInt(menuItem.dataset.remove)){
             return item
         }
-    }))
+    })
+    if (cart.includes(itemToRemove)){
+        console.log("at least 1 in cart")
+    }
+    cart.pop(itemToRemove)
 }
 
