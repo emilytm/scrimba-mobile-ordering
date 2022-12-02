@@ -32,7 +32,7 @@ function renderMenu(menuArray) {
                 </section>
                 <section class="item-interactions">
                     <image class="item-interaction quantity-button" src="./images/plus.png" data-add=${menuItem.id}>
-                    <input placeholder="0" class="item-quantity item-interaction" id="${menuItem.id}-quantity">
+                    <p class="item-quantity item-interaction" id="${menuItem.id}-quantity">0</p>
                     <image class="item-interaction quantity-button" src="./images/minus.png" data-remove=${menuItem.id}>
                 </section>
             </div>
@@ -47,6 +47,17 @@ I noticed that the following two functions (addToCart and removeFromCart) are ve
 */
 
 function addToCart(menuItem){
+    updateQuantityElement(menuItem.dataset.add+'-quantity','add')
+    /*const itemId = menuItem.dataset.add
+    const quantityElementId = menuItem.dataset.add+'-quantity'
+    const quantityEl = document.getElementById(quantityElementId)
+    let itemQuantity = parseInt(quantityEl.textContent)
+    const ind = menuArray.findIndex(item => item.id === parseInt(itemId))
+    itemQuantity++
+    quantityEl.textContent=itemQuantity*/
+
+
+    console.log("index of this item is: ",ind)
     let itemToAdd = menuArray.find(item => {
         if(item.id === parseInt(menuItem.dataset.add)){
             return item
@@ -57,6 +68,7 @@ function addToCart(menuItem){
 }
 
 function removeFromCart(menuItem){
+    updateQuantityElement(menuItem.dataset.remove+'-quantity','remove')
     let itemToRemove = menuArray.find(item => {
         if(item.id === parseInt(menuItem.dataset.remove)){
             return item
@@ -69,3 +81,14 @@ function removeFromCart(menuItem){
     cart.pop(itemToRemove)
 }
 
+function updateQuantityElement(elementId,action){
+    console.log('made it to update quantity element with parameter: ', elementId)
+    let quantityEl = document.getElementById(elementId)
+    let currentQuantity = parseInt(quantityEl.textContent)
+    if (action === 'add') {
+        currentQuantity++
+    } else {
+        currentQuantity--
+    }
+    quantityEl.textContent = currentQuantity
+}
