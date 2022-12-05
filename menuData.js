@@ -19,5 +19,26 @@ export const menuArray = [
         price: 12,
         emoji: "🍺",
         id: 2,
+    },
+    {
+        name: "Wine",
+        ingredients: ["grapes","yeast","time"],
+        id: 3,
+        price: 7,
+        emoji: "🍷",
+    },
+    {
+        name: "Champagne",
+        ingredients: ["extra special grapes"],
+        price: 9,
+        emoji: "🥂",
+        id: 4,
+    },
+        {
+        name: "Noodles",
+        ingredients: ["flour","oil","eggs","broth"],
+        price: 13,
+        emoji: "🍜",
+        id: 5,
     }
 ]

@@ -36,7 +36,9 @@ p {
     margin-block-start: 8px;
 }
 
-
+.menu-list {
+    overflow-y: scroll;
+}
 
 .menu-item {
     display: flex;
@@ -152,3 +154,21 @@ button {
     justify-content: space-between;
 }
 
+.cart-area {
+    background-color: white;
+    border-top: 1px solid rgb(240, 240, 240);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.order-items-list p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}

@@ -57,7 +57,7 @@ function addToCart(menuItem){
     quantityEl.textContent=itemQuantity*/
 
 
-    console.log("index of this item is: ",ind)
+    //console.log("index of this item is: ",ind)
     let itemToAdd = menuArray.find(item => {
         if(item.id === parseInt(menuItem.dataset.add)){
             return item
@@ -65,6 +65,7 @@ function addToCart(menuItem){
     })
     document.getElementById(menuItem.dataset.add+'-quantity').value++
     cart.push(itemToAdd)
+    renderCart()
 }
 
 function removeFromCart(menuItem){
@@ -79,6 +80,7 @@ function removeFromCart(menuItem){
     }
     document.getElementById(menuItem.dataset.remove+'-quantity').value--
     cart.pop(itemToRemove)
+    renderCart()
 }
 
 function updateQuantityElement(elementId,action){
@@ -91,4 +93,26 @@ function updateQuantityElement(elementId,action){
         currentQuantity--
     }
     quantityEl.textContent = currentQuantity
+}
+
+
+function renderCart() {
+    let cartHtml = ""
+    const cartList = document.getElementById('order-items-list')
+    cartList.innerHTML = ""
+
+    cart.forEach(function(orderItem) {
+        console.log(orderItem.name)
+        cartHtml += `
+            <div class="order-item">
+                <div class="order-item-details">
+                    <p class="order-item-name detail">${orderItem.name}</p>
+                    <p class="order-item-remove detail">remove</p>
+                </div>
+                <p class="order-item-price order-item-details">${orderItem.price}</p>
+            </div>
+            <hr>
+        `
+    })
+    cartList.innerHTML = cartHtml    
 }
