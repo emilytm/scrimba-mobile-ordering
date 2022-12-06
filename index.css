@@ -182,3 +182,11 @@ button {
 .hidden {
     display: none;
 }
+
+.payment-modal {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    background-color: red;
+    top: 100px;
+}

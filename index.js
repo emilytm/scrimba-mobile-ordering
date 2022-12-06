@@ -1,6 +1,7 @@
 import { menuArray } from './menuData.js'
 
 let cart = []
+let orderTotal = 0
 
 document.addEventListener('DOMContentLoaded', renderMenu(menuArray))
 document.addEventListener('click',function(e){
@@ -29,7 +30,7 @@ function renderMenu(menuArray) {
                 <section class="item-details">
                     <p class="item-name">${menuItem.name}</p>
                     <p class="ingredients">${menuItem.ingredients}</p>
-                    <p class="price">${menuItem.price}</p>
+                    <p class="price">$${menuItem.price}</p>
                 </section>
                 <section class="item-interactions">
                     <image class="item-interaction quantity-button" src="./images/plus.png" data-add=${menuItem.id}>
@@ -50,12 +51,8 @@ function addToCart(menuItem){
             return item
         }
     })
-    let newCartItem = {
-        'name': itemToAdd.name,
-        'price': itemToAdd.price,
-        'id': itemToAdd.id
-    }
     cart.push(itemToAdd)
+    orderTotal += itemToAdd.price
     document.getElementById(menuItem.dataset.add+'-quantity').value++
     renderCart()
 }
@@ -81,6 +78,7 @@ function removeFromCart(menuItem){
     if (cart.includes(itemToRemove)){
         cart.filter(removeValue)
         updateQuantityElement(menuItem.dataset.remove+'-quantity','remove')
+        orderTotal -= itemToRemove.price
     }
     renderCart()
 }
@@ -110,12 +108,13 @@ function renderCart() {
                     <p class="order-item-name detail">${orderItem.name}</p>
                     <p class="order-item-remove detail" data-remove="${orderItem.id}">remove</p>
                 </div>
-                <p class="order-item-price order-item-details">${orderItem.price}</p>
+                <p class="order-item-price order-item-details">$${orderItem.price}</p>
             </div>
             <hr>
         `
     })
     cartList.innerHTML = cartHtml 
+    document.getElementById('order-total-price').textContent = `$${orderTotal}`
     if(cart.length === 0) {
         document.getElementById('cart-area').classList.add('hidden')
     } else {
