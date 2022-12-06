@@ -25,16 +25,15 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 39px;
+    font-size: 2.5em;
 }
 
 h2 {
-    font-size: 22px;
+    font-size: 1.5em;
 }
 
 p {
-    font-size: 28px;
-    line-height: 24px;
+    font-size: 1.5em;
     margin-block-end: 8px;
     margin-block-start: 8px;
 }
@@ -51,7 +50,7 @@ p {
 }
 
 .item-emoji {
-    font-size: 72px;
+    font-size: 4.5em;
     margin-block-end: 0;
     margin-block-start: 0;
     opacity: 72%;
@@ -59,8 +58,8 @@ p {
 
 .ingredients {
     color: #8B8B8B;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 1em;
+    line-height: 1.5em;
 }
 
 .item-details {
@@ -75,13 +74,13 @@ p {
 }
 
 .item-name {
-    font-size: 28px;
-    line-height: 16px;
+    font-size: 1.5em;
+    line-height: 1em;
 }
 
 .price {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 1.5em;
+    line-height: 1em;
 }
 
 hr {
@@ -141,7 +140,7 @@ hr {
 
 .order-item-remove {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
+    font-size: .6em;
     color: #D2D2D2;
     padding-left: 14px;
     margin-block-end: auto;
@@ -168,8 +167,8 @@ hr {
 
 .order-items-list p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 12px;
-    line-height: 14px;
+    font-size: .8em;
+    line-height: .8em;
     margin-block-start: 0px;
     margin-block-end: 0px;
 }
@@ -204,7 +203,7 @@ hr {
     margin-bottom: 45px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 1.5em;
 }
 
 .payment-modal .cc-input {
@@ -212,7 +211,7 @@ hr {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
     height: 72px;
-    font-size: 20px;
+    font-size: 1em;
     margin-top: 12px;
     margin-bottom: 12px;
     border-radius: 4px;
