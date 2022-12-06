@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Smythe&display=swap');
+
+/* -- Page structure -- */
 body {
     margin: 0;
     font-family: 'Smythe', cursive;
@@ -19,6 +21,12 @@ header {
     padding: 45px;
 }
 
+.menu-list {
+    overflow-y: scroll;
+}
+
+/* -- Typography -- */
+
 h1, h2 {
     margin:0;
     padding-bottom: 20px
@@ -38,9 +46,7 @@ p {
     margin-block-start: 8px;
 }
 
-.menu-list {
-    overflow-y: scroll;
-}
+/* -- Menu item formatting -- */
 
 .menu-item {
     display: flex;
@@ -49,17 +55,13 @@ p {
     padding: 42px 0 32px 0;
 }
 
+/* Menu item-specific details */
+
 .item-emoji {
     font-size: 4.5em;
     margin-block-end: 0;
     margin-block-start: 0;
     opacity: 72%;
-}
-
-.ingredients {
-    color: #8B8B8B;
-    font-size: 1em;
-    line-height: 1.5em;
 }
 
 .item-details {
@@ -73,14 +75,15 @@ p {
     margin-block-start: 8px;
 }
 
-.item-name {
+.item-name, .price {
     font-size: 1.5em;
     line-height: 1em;
 }
 
-.price {
-    font-size: 1.5em;
-    line-height: 1em;
+.ingredients {
+    color: #8B8B8B;
+    font-size: 1em;
+    line-height: 1.5em;
 }
 
 hr {
@@ -89,6 +92,8 @@ hr {
     background-color:#D2D2D2;
     border-style: none;
 }
+
+/* Menu item interactions */
 
 .quantity-button {
     border-radius: 100%;
@@ -115,6 +120,30 @@ hr {
     font-family: 'Smythe', sans-serif;
 }
 
+/* -- Cart formatting -- */
+
+.cart-area {
+    background-color: white;
+    border-top: 1px solid rgb(240, 240, 240);
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.your-order-title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.order-items-list {
+    height: 100px;
+    overflow-y: scroll;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+}
+
 .ordering-btn {
     background-color: #16DB99;
     color: white;
@@ -128,14 +157,21 @@ hr {
     border-radius: 4px;
 }
 
+/* Order item formatting in cart */
+
 .order-item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.detail {
-    display: inline-block;
+
+.order-items-list p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: .8em;
+    line-height: .8em;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }
 
 .order-item-remove {
@@ -148,39 +184,11 @@ hr {
     cursor: pointer;
 }
 
-.your-order-title {
-    text-align: center;
-    margin: 20px 0;
+.detail {
+    display: inline-block;
 }
 
-.order-total {
-    display: flex;
-    justify-content: space-between;
-}
-
-.cart-area {
-    background-color: white;
-    border-top: 1px solid rgb(240, 240, 240);
-    padding-left: 48px;
-    padding-right: 48px;
-}
-
-.order-items-list p {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: .8em;
-    line-height: .8em;
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
-
-.order-items-list {
-    height: 100px;
-    overflow-y: scroll;
-}
-
-.hidden {
-    display: none;
-}
+/* -- Payment modal formatting -- */
 
 .payment-modal {
     position: fixed;
@@ -211,7 +219,7 @@ hr {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
     height: 72px;
-    font-size: 1em;
+    font-size: 1.3em;
     margin-top: 12px;
     margin-bottom: 12px;
     border-radius: 4px;
@@ -219,10 +227,7 @@ hr {
     text-indent: 24px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
+/* -- Post-ordering success message formatting -- */
 
 .success-message {
     background-color: #ECFDF5;
@@ -240,4 +245,14 @@ input::-webkit-inner-spin-button {
     padding-top: 32px;
 }
 
+/* -- Utility -- */
 
+.hidden {
+    display: none;
+}
+
+/* Added this to remove the arrow spin buttons that show up on number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
