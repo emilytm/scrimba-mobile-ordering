@@ -29,10 +29,10 @@
                     <p>Order Total</p>
                     <p id="order-total-price" class="order-total-price"></p>
                 </div>
-                <button id="complete-order-btn" class="ordering-btn">Complete Order</button>
+                <button id="complete-order-btn" class="ordering-btn" data-order="complete-order">Complete Order</button>
             </section>
         </main>
-        <section class="payment-modal">
+        <section class="payment-modal hidden">
             <p>Enter card details</p>
             <form>
                 <input id="cc-name" class="cc-input" type="text" placeholder="Enter your name" required>
@@ -40,6 +40,9 @@
                 <input id="cc-cvv" class="cc-input" type="number" placeholder="Enter CVV" inputmode="numeric" required>
                 <input id="pay-btn" type="submit" value="Pay" class="ordering-btn" dataset-pay='pay-btn'>
             </form>
+        </section>
+        <section class="success-message hidden">
+            <p id="personalized-success-message">Thanks, James! Your order is on its way!</p>
         </section>
     </body>
     <script src="./index.js" type="module"></script>

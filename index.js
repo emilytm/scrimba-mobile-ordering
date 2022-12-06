@@ -14,8 +14,8 @@ document.addEventListener('click',function(e){
         console.log("removing: ", e.target," from cart")
         removeFromCart(e.target)
     }
-    else if (e.target.dataset.pay) {
-        console.log("PAY BUTTON")
+    else if (e.target.dataset.order) {
+        console.log("ORDER BUTTON")
     }
 
 })
