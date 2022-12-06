@@ -12,7 +12,8 @@ document.addEventListener('click',function(e){
     else if (e.target.dataset.remove) {
         console.log("removing: ", e.target)
         removeFromCart(e.target)
-    }
+    } 
+
 })
 
 function renderMenu(menuArray) {
@@ -69,17 +70,16 @@ function addToCart(menuItem){
 }
 
 function removeFromCart(menuItem){
-    updateQuantityElement(menuItem.dataset.remove+'-quantity','remove')
+    let itemId = parseInt(menuItem.dataset.remove)
     let itemToRemove = menuArray.find(item => {
-        if(item.id === parseInt(menuItem.dataset.remove)){
+        if(item.id === itemId){
             return item
         }
     })
     if (cart.includes(itemToRemove)){
-        console.log("at least 1 in cart")
+        updateQuantityElement(itemId+'-quantity','remove')
+        cart.pop(itemToRemove)
     }
-    document.getElementById(menuItem.dataset.remove+'-quantity').value--
-    cart.pop(itemToRemove)
     renderCart()
 }
 
@@ -107,12 +107,17 @@ function renderCart() {
             <div class="order-item">
                 <div class="order-item-details">
                     <p class="order-item-name detail">${orderItem.name}</p>
-                    <p class="order-item-remove detail">remove</p>
+                    <p class="order-item-remove detail" data-remove="${orderItem.id}">remove</p>
                 </div>
                 <p class="order-item-price order-item-details">${orderItem.price}</p>
             </div>
             <hr>
         `
     })
-    cartList.innerHTML = cartHtml    
+    cartList.innerHTML = cartHtml 
+    if(cart.length === 0) {
+        document.getElementById('cart-area').classList.add('hidden')
+    } else {
+        document.getElementById('cart-area').classList.remove('hidden')
+    }
 }
