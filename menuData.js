@@ -36,7 +36,7 @@ export const menuArray = [
     },
         {
         name: "Noodles",
-        ingredients: ["flour","oil","eggs","broth"],
+        ingredients: ["flour","water","eggs"],
         price: 13,
         emoji: "🍜",
         id: 5,

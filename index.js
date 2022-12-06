@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', renderMenu(menuArray))
 document.addEventListener('click',function(e){
     console.log(e.target.dataset)
     if(e.target.dataset.add){
-        console.log("adding: ", e.target)
+        console.log("adding: ", e.target," to cart")
         addToCart(e.target)
     } 
     else if (e.target.dataset.remove) {
-        console.log("removing: ", e.target)
+        console.log("removing: ", e.target," from cart")
         removeFromCart(e.target)
     } 
 
@@ -22,7 +22,7 @@ function renderMenu(menuArray) {
     menuList.innerHTML = ""
 
     menuArray.forEach(function(menuItem) {
-        console.log(menuItem.name)
+        console.log("rendering menu item ",menuItem.name," in menu list")
         menuHtml += `
             <div class="menu-item">
                 <p class="item-emoji">${menuItem.emoji}</p>
@@ -43,48 +43,49 @@ function renderMenu(menuArray) {
     menuList.innerHTML = menuHtml    
 }
 
-/* 
-I noticed that the following two functions (addToCart and removeFromCart) are very similar and I tried to make one function that would replace both where 'add' or 'remove' are passed in as parameters but couldn't figure out how to use that parameter to replace the array method (push or pop) or the data attribute (add or remove). Is there a way to do this?
-*/
-
 function addToCart(menuItem){
     updateQuantityElement(menuItem.dataset.add+'-quantity','add')
-    /*const itemId = menuItem.dataset.add
-    const quantityElementId = menuItem.dataset.add+'-quantity'
-    const quantityEl = document.getElementById(quantityElementId)
-    let itemQuantity = parseInt(quantityEl.textContent)
-    const ind = menuArray.findIndex(item => item.id === parseInt(itemId))
-    itemQuantity++
-    quantityEl.textContent=itemQuantity*/
-
-
-    //console.log("index of this item is: ",ind)
     let itemToAdd = menuArray.find(item => {
         if(item.id === parseInt(menuItem.dataset.add)){
             return item
         }
     })
-    document.getElementById(menuItem.dataset.add+'-quantity').value++
+    let newCartItem = {
+        'name': itemToAdd.name,
+        'price': itemToAdd.price,
+        'id': itemToAdd.id
+    }
     cart.push(itemToAdd)
+    document.getElementById(menuItem.dataset.add+'-quantity').value++
     renderCart()
 }
 
 function removeFromCart(menuItem){
     let itemId = parseInt(menuItem.dataset.remove)
+    let removed = false
+
+    function removeValue(value, index, arr) {
+        if(value.id === itemId && removed === false) {
+            arr.splice(index,1)
+            removed = true
+            return true
+        }
+        return false
+    }
+
     let itemToRemove = menuArray.find(item => {
         if(item.id === itemId){
             return item
         }
     })
     if (cart.includes(itemToRemove)){
-        updateQuantityElement(itemId+'-quantity','remove')
-        cart.pop(itemToRemove)
+        cart.filter(removeValue)
+        updateQuantityElement(menuItem.dataset.remove+'-quantity','remove')
     }
     renderCart()
 }
 
 function updateQuantityElement(elementId,action){
-    console.log('made it to update quantity element with parameter: ', elementId)
     let quantityEl = document.getElementById(elementId)
     let currentQuantity = parseInt(quantityEl.textContent)
     if (action === 'add') {
@@ -102,7 +103,7 @@ function renderCart() {
     cartList.innerHTML = ""
 
     cart.forEach(function(orderItem) {
-        console.log(orderItem.name)
+        console.log('DISPLAY CART ITEM: ',orderItem.name)
         cartHtml += `
             <div class="order-item">
                 <div class="order-item-details">

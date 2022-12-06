@@ -105,6 +105,7 @@ hr {
     display: flex;
     flex-flow: row-reverse;
     align-items: center;
+    cursor: pointer;
 }
 
 .item-quantity {
@@ -145,6 +146,7 @@ button {
     padding-left: 14px;
     margin-block-end: auto;
     margin-block-start: auto;
+    cursor: pointer;
 }
 
 .your-order-title {
