@@ -32,17 +32,40 @@
                 <button id="complete-order-btn" class="ordering-btn" data-order="complete-order">Complete Order</button>
             </section>
         </main>
-        <section class="payment-modal hidden">
+        <section class="payment-modal hidden" id="payment-modal-el">
             <p>Enter card details</p>
-            <form>
-                <input id="cc-name" class="cc-input" type="text" placeholder="Enter your name" required>
-                <input id="cc-card-num" class="cc-input" type="number" placeholder="Enter card number" inputmode="numeric" required>
-                <input id="cc-cvv" class="cc-input" type="number" placeholder="Enter CVV" inputmode="numeric" required>
-                <input id="pay-btn" type="submit" value="Pay" class="ordering-btn" dataset-pay='pay-btn'>
+            <form id="cc-form">
+                <input 
+                    id="cc-name"
+                    name="ccname" 
+                    class="cc-input" 
+                    type="text" 
+                    placeholder="Enter your name" 
+                    required
+                >
+                <input 
+                    id="cc-card-num"
+                    name="cardnum" 
+                    class="cc-input" 
+                    type="number" 
+                    placeholder="Enter card number" 
+                    inputmode="numeric" 
+                    required
+                >
+                <input 
+                    id="cc-cvv"
+                    name="cvv" 
+                    class="cc-input" 
+                    type="number" 
+                    placeholder="Enter CVV" 
+                    inputmode="numeric" 
+                    required
+                >
+                <button id="pay-btn" class="ordering-btn" dataset-pay='pay-btn'>Pay</button>
             </form>
         </section>
-        <section class="success-message hidden">
-            <p id="personalized-success-message">Thanks, James! Your order is on its way!</p>
+        <section id="success-message" class="success-message hidden">
+            <p id="success-message-text">Thanks, James! Your order is on its way!</p>
         </section>
     </body>
     <script src="./index.js" type="module"></script>

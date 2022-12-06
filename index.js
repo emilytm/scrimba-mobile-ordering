@@ -2,8 +2,12 @@ import { menuArray } from './menuData.js'
 
 let cart = []
 let orderTotal = 0
-
+let orderName = ""
+const ccForm = document.getElementById('cc-form')
+const successMsg = document.getElementById('success-message')
 document.addEventListener('DOMContentLoaded', renderMenu(menuArray))
+
+
 document.addEventListener('click',function(e){
     console.log(e.target.dataset)
     if(e.target.dataset.add){
@@ -15,10 +19,13 @@ document.addEventListener('click',function(e){
         removeFromCart(e.target)
     }
     else if (e.target.dataset.order) {
-        console.log("ORDER BUTTON")
+        if(cart.length != 0){
+            document.getElementById('payment-modal-el').classList.remove('hidden')
+        }
     }
-
 })
+
+
 
 function renderMenu(menuArray) {
     let menuHtml = ""
@@ -61,6 +68,7 @@ function addToCart(menuItem){
 }
 
 function removeFromCart(menuItem){
+    console.log("NORMAL REMOVE PARAMETER IS: ",menuItem)
     let itemId = parseInt(menuItem.dataset.remove)
     let removed = false
 
@@ -124,3 +132,25 @@ function renderCart() {
         document.getElementById('cart-area').classList.remove('hidden')
     }
 }
+
+ccForm.addEventListener('submit',function(e){
+    e.preventDefault()
+    console.log("PREVENTED DEFAULT")
+    orderName = ccForm.elements['ccname'].value
+    document.getElementById('payment-modal-el').classList.add('hidden')
+    document.getElementById('success-message-text').textContent = 
+        `Thanks, ${orderName}! Your order is on its way!`
+    document.getElementById('success-message').classList.remove('hidden')
+    setTimeout(function(){
+        document.getElementById('success-message').classList.add('hidden')
+    },2500)
+   // successMsg.classList.remove('hidden')
+
+    let quantityDisplays = document.querySelectorAll('.item-quantity')
+    quantityDisplays.forEach(function(foodQuantity){
+        foodQuantity.textContent = 0
+    })
+    cart=[]
+    renderCart()
+
+})
