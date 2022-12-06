@@ -38,6 +38,7 @@
                 <input 
                     id="cc-name"
                     name="ccname" 
+                    aria-label="credit card name"
                     class="cc-input" 
                     type="text" 
                     placeholder="Enter your name" 
@@ -46,6 +47,7 @@
                 <input 
                     id="cc-card-num"
                     name="cardnum" 
+                    aria-label="credit card number"
                     class="cc-input" 
                     type="number" 
                     placeholder="Enter card number" 
@@ -55,13 +57,14 @@
                 <input 
                     id="cc-cvv"
                     name="cvv" 
+                    aria-label="credit card cvv"
                     class="cc-input" 
                     type="number" 
                     placeholder="Enter CVV" 
                     inputmode="numeric" 
                     required
                 >
-                <button id="pay-btn" class="ordering-btn" dataset-pay='pay-btn'>Pay</button>
+                <button id="pay-btn" type="submit" class="ordering-btn" dataset-pay='pay-btn'>Pay</button>
             </form>
         </section>
         <section id="success-message" class="success-message hidden">

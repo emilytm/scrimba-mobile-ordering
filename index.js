@@ -134,23 +134,28 @@ function renderCart() {
 }
 
 ccForm.addEventListener('submit',function(e){
+    
     e.preventDefault()
-    console.log("PREVENTED DEFAULT")
-    orderName = ccForm.elements['ccname'].value
+
+    const ccFormData = new FormData(ccForm)
+    const orderName = ccFormData.get('ccname')
     document.getElementById('payment-modal-el').classList.add('hidden')
+    
+    //Display the right name in the success message, then hide after 2.5sec
     document.getElementById('success-message-text').textContent = 
         `Thanks, ${orderName}! Your order is on its way!`
     document.getElementById('success-message').classList.remove('hidden')
     setTimeout(function(){
         document.getElementById('success-message').classList.add('hidden')
     },2500)
-   // successMsg.classList.remove('hidden')
 
+    //Clear out info from old order
     let quantityDisplays = document.querySelectorAll('.item-quantity')
     quantityDisplays.forEach(function(foodQuantity){
         foodQuantity.textContent = 0
     })
-    cart=[]
+    orderTotal = 0
+    cart = []
     renderCart()
-
+    ccForm.reset()
 })
