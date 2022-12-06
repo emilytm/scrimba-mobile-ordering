@@ -13,7 +13,10 @@ document.addEventListener('click',function(e){
     else if (e.target.dataset.remove) {
         console.log("removing: ", e.target," from cart")
         removeFromCart(e.target)
-    } 
+    }
+    else if (e.target.dataset.pay) {
+        console.log("PAY BUTTON")
+    }
 
 })
 
