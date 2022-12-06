@@ -32,7 +32,7 @@
                 <button id="complete-order-btn" class="ordering-btn" data-order="complete-order">Complete Order</button>
             </section>
         </main>
-        <section class="payment-modal hidden" id="payment-modal-el">
+        <div class="payment-modal hidden" id="payment-modal-el">
             <p>Enter card details</p>
             <form id="cc-form">
                 <input 
@@ -66,10 +66,12 @@
                 >
                 <button id="pay-btn" type="submit" class="ordering-btn" dataset-pay='pay-btn'>Pay</button>
             </form>
-        </section>
-        <section id="success-message" class="success-message hidden">
+            <button class="close-payment-modal-btn" data-cancel="cancel-order">Cancel</button>
+
+        </div>
+        <div id="success-message" class="success-message hidden">
             <p id="success-message-text"></p>
-        </section>
+        </div>
     </body>
     <script src="./index.js" type="module"></script>
 </html>

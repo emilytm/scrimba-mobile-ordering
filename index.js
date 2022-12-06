@@ -2,9 +2,7 @@ import { menuArray } from './menuData.js'
 
 let cart = []
 let orderTotal = 0
-let orderName = ""
 const ccForm = document.getElementById('cc-form')
-const successMsg = document.getElementById('success-message')
 document.addEventListener('DOMContentLoaded', renderMenu(menuArray))
 
 
@@ -22,6 +20,10 @@ document.addEventListener('click',function(e){
         if(cart.length != 0){
             document.getElementById('payment-modal-el').classList.remove('hidden')
         }
+    }
+    else if (e.target.dataset.cancel) {
+        ccForm.reset()
+        document.getElementById('payment-modal-el').classList.add('hidden')
     }
 })
 
