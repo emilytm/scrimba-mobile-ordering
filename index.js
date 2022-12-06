@@ -10,12 +10,10 @@ document.addEventListener('click',function(e){
 
     //Add to cart
     if(e.target.dataset.add){
-        console.log("adding: ", e.target," to cart")
         addToCart(e.target)
     } 
     //Remove from cart
     else if (e.target.dataset.remove) {
-        console.log("removing: ", e.target," from cart")
         removeFromCart(e.target)
     }
     //Complete order
@@ -42,7 +40,6 @@ function renderMenu(menuArray) {
 
     //Iterate through menu to generate HTML for list of menu items
     menuArray.forEach(function(menuItem) {
-        console.log("rendering menu item ",menuItem.name," in menu list")
         menuHtml += `
             <div class="menu-item">
                 <p class="item-emoji">${menuItem.emoji}</p>

@@ -246,6 +246,7 @@ hr {
     background-color: #ECFDF5;
     color: #065F46;
     border-radius: 4px;
+    border: 1px solid #065F46;
     position: fixed;
     bottom: 30px;
     left: 0px;
