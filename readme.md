@@ -1,6 +1,6 @@
 # Mobile Ordering
 
-This mobile ordering app started as part of the 'Essential Javascript Concepts' module in Scrimba's Front-end Developer Career Path. We were given requirements and designs.
+I created as the solo project for the 'Essential Javascript Concepts' module of the Scrimba Front End Developer Career Path. Design and functionality requirements are from Scrimba.
 
 See this project live [here](https://dulcet-cendol-f1a005.netlify.app/).
 
